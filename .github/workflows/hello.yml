@@ -38,7 +38,7 @@
 #     steps:
 #       -run: echo "workflow successful"
 on: Push
-Jobs:
+jobs:
   test:
     runs-on: ubuntu-latest
     
