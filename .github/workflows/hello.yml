@@ -1,25 +1,49 @@
-name: My First Workflow
+# name: Pull Request Check
 
-on:
- push:
- pull_request:
+# on:
+#   push:
+#     branches:
+#       - soni
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Print Message
+#         run: echo "Hello, World!"
+
+#       - name: Show GitHub event details
+#         run: |
+#           echo "Workflow is running successfully."
+#           echo "Event: ${{ github.event_name }}"
+#           echo "Source branch: ${{ github.head_ref || github.ref_name }}"
+#           echo "Target branch: ${{ github.base_ref }}"
+
+# on: Push
+# Jobs:
+#   run-test:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       -run: echo "test is running"
+#       -run: echo "test successful"
   
-
- 
-jobs:
-  say-hello:
+#   deploy_App:
+#     needs: run_test
+#     runs-on: ubuntu-latest
+#     steps:
+#       -run: echo "workflow successful"
+on: Push
+Jobs:
+  test:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Print message
-        run: echo "Hello, Github Actions!"
-      - name: Extra message
-        run: echo "This is my first workflow."  
-      - name: Print Names
-        run: echo "Hello , Soni Sharma"
-  say-bye:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print message
-        run: echo "Goodbye, Github Actions!"
-      - name: Print Names
-        run: echo "Goodbye , Soni Sharma"
+      name: Checkout code
+      uses: actions/checkout@v4
+      name: list files
+      run: ls 
